@@ -17,13 +17,17 @@ class ProductController extends Controller
     {
         $products = new Product;
 
+        // Filtra productos de acuerdo al nombre del producto
         if (request()->has('name')) {
             $products = $products->where('name', 'LIKE', '%' . request('name') . '%');
         }
+
+        // Ordena los productos en su campo 'name' de manera ya sea ascendente o descendente
         if (request()->has('sort')) {
             $products = $products->orderBy('name', request('sort'));
         }
 
+        // Realiza el paginado
         $products = $products->paginate()->appends([
             'name' => request('name'),
             'sort' => request('sort')

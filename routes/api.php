@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
+// Crea los endpoints necesarios para un crud de productos
 Route::apiResource('products', ProductController::class);
+
+// Ruta extra creada para obtener la lista de productos según su categoría
 Route::get('category/{category}', [ProductController::class, 'category']);
 
+// Crea los endpoints necesarios para un crud de categorias
 Route::apiResource('categories', CategoryController::class);

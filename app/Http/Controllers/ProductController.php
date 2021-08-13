@@ -13,6 +13,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // FUNCION QUE ME DEVOLVERÁ LA LISTA DE PRODUCTOS
+    // se corresponde con la ruta: GET api/products
     public function index()
     {
         $products = new Product;
@@ -22,7 +25,7 @@ class ProductController extends Controller
             $products = $products->where('name', 'LIKE', '%' . request('name') . '%');
         }
 
-        // Ordena los productos en su campo 'name' de manera ya sea ascendente o descendente
+        // Ordena los productos en su campo 'name' de manera ya sea ascendente o descendente (sort='asc' || sort='desc')
         if (request()->has('sort')) {
             $products = $products->orderBy('name', request('sort'));
         }
@@ -36,11 +39,14 @@ class ProductController extends Controller
         return response($products);
     }
 
+    // FUNCION QUE ME DEVOLVERÁ UN PRODUCTO DE ACUERDO AL ID DE LA CATEGORÍA QUE LE PASEMOS
+    // se corresponse con la ruta: GET api/category/{category}
     public function category(Category $category) {
         $products = Product::where('category', $category->id)->get();
         return response($products);
         // return response($category->products()->get()); // Option 2
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -48,6 +54,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // FUNCION QUE ME ALMACENARÁ UN NUEVO PRODUCTO EN LA DB, en este caso no la usamos porque la prueba no lo necesita
     public function store(Request $request)
     {
         //
@@ -59,6 +66,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
+    // FUNCION QUE ME DEVOLVERÁ UN PRODUCTO DE ACUERDO A SU ID, en este caso no la usamos porque la prueba no lo necesita
     public function show(Product $product)
     {
         $producto = Product::findOrFail($product->id);
@@ -72,6 +80,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
+    // FUNCION QUE ME ACTUALIZARÁ UN PRODUCTO DE LA DB, en este caso no la usamos porque la prueba no lo necesita
     public function update(Request $request, Product $product)
     {
         // $product = Product::findOrFail($product)->update($request->all());
@@ -84,6 +93,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
+    // FUNCION QUE ME ELIMINARÁ UN PRODUCTO DE LA DB, en este caso no la usamos porque la prueba no lo necesita
     public function destroy(Product $product)
     {
         // Product::destroy($product);

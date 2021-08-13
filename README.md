@@ -5,27 +5,27 @@ Para realizar el API Rest se usó como framework de backend a LARAVEL. A continu
 
 1. Para empezar se crearon las rutas tanto para manejar a los productos y a las categorías, estas se encuentran en el archivo *'api.php'* (dentro de carpeta routes). Este es el punto donde empieza todo, por así decirlo, ya que estas rutas son las que finalmente serán usadas por mi cliente para consumir los datos. A continuación las rutas que se crean:
     - Rutas para las categorías
-![alt text](https://github.com/diego-gonzales/bsale-test-backend/blob/main/docs/screenshots/categories_route.png)
+![alt text](./docs/screenshots/categories_route.PNG)
 El código anterior crea todo esto:
-![alt text](./docs/screenshots/routes_categories.png)
+![alt text](./docs/screenshots/routes_categories.PNG)
 
     - Rutas para los productos
-![alt text](./docs/screenshots/products_route.png)
+![alt text](./docs/screenshots/products_route.PNG)
 El código anterior crea todo esto:
-![alt text](./docs/screenshots/routes_products.png)
+![alt text](./docs/screenshots/routes_products.PNG)
 
     - NOTA: Ya que esta prueba no necesita manejar todo un CRUD completo, solo se utilizaron las rutas que traen la lista tanto de productos como de categorías, y la ruta extra para traer los productos de acuerdo a una categoría.
 
 2. Además de esto se creo una ruta extra para obtener los productos de acuerdo a una categoría (ruta *category/{category}*).
-    ![alt text](./docs/screenshots/extra_route.png)
+    ![alt text](./docs/screenshots/extra_route.PNG)
     El código anterior dará como resultado:
-    ![alt text](./docs/screenshots/route_product_by_category.png)
+    ![alt text](./docs/screenshots/route_product_by_category.PNG)
 
 3. Se creó los modelos para los productos y categorías (*Product* y *Category* respectivamente, dentro de la carpeta *app/Models*).
     - Product Model:
-    ![alt text](./docs/screenshots/product_model.png)
+    ![alt text](./docs/screenshots/product_model.PNG)
     - Category Model:
-    ![alt text](./docs/screenshots/category_model.png)
+    ![alt text](./docs/screenshots/category_model.PNG)
 
 4. Los modelos mencionados en el punto anterior son necesarios para que los controlares *ProductController* y *CategoryController* (dentro de app/Http/Controllers) puedan interactuar con la base de datos. Lo que esta dentro de los controladores simplemente es lógica de programación.
     - Un punto a tener en cuenta es que no he usado todos los métodos dentro de los controladores, ya que no se pide realizar un crud completo para esta prueba.

@@ -5,7 +5,7 @@ Para realizar el API Rest se usó como framework de backend a LARAVEL. A continu
 
 1. Para empezar se crearon las rutas tanto para manejar a los productos y a las categorías, estas se encuentran en el archivo *'api.php'* (dentro de carpeta routes). Este es el punto donde empieza todo, por así decirlo, ya que estas rutas son las que finalmente serán usadas por mi cliente para consumir los datos. A continuación las rutas que se crean:
     - Rutas para las categorías
-![alt text](./docs/screenshots/categories_route.png)
+![alt text](https://github.com/diego-gonzales/bsale-test-backend/blob/main/docs/screenshots/categories_route.png)
 El código anterior crea todo esto:
 ![alt text](./docs/screenshots/routes_categories.png)
 
